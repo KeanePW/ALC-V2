@@ -26,19 +26,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+#define('_logout', 'Log Out');
+define('_id_dont_exist', 'The requested ID does not exist!');
+define('_error', 'Error');
+define('_notice', 'Notice');
+define('_success', 'Success');
+define('_warning', 'Warning');
 
-/* INCLUDES/REQUIRES */
-require_once 'core/common.core.inc.php';
-if (!defined('RunALC')) { exit; }
-
-/** PAGE OUTPUT **/
-$output = output::getIndex();
-if(count($output) >= 1) {
-    foreach ($output as $placeholder => $text) {
-        $templsys_core->assign($placeholder, $text);
-    }
-}
-
-exit($templsys_core->page());
+## Gruppen ##
+define('_group_guest', 'Guest');
+define('_group_admin', 'Administrator');
+define('_group_member', 'Member');
+define('_group_moderator', 'Moderator');
+define('_group_user', 'User');

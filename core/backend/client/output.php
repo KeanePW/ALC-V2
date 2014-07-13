@@ -26,19 +26,26 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-/* INCLUDES/REQUIRES */
-require_once 'core/common.core.inc.php';
-if (!defined('RunALC')) { exit; }
-
-/** PAGE OUTPUT **/
-$output = output::getIndex();
-if(count($output) >= 1) {
-    foreach ($output as $placeholder => $text) {
-        $templsys_core->assign($placeholder, $text);
-    }
+if (!defined('RunALC')) {
+    exit;
 }
 
-exit($templsys_core->page());
+class output {
+    private static $output_index = array();
+
+    public static function getIndex() {
+        return self::$output_index;
+    }
+
+    public static function set($placeholder = '', $text = '') {
+        self::$output_index[$placeholder] = $text;
+    }
+
+    public static function setEmpty($placeholder = '') {
+        self::set($placeholder,'');
+    }
+
+    public static function remove($placeholder = '') {
+        unset(self::$output_index[$placeholder]);
+    }
+}

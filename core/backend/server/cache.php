@@ -26,19 +26,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-/* INCLUDES/REQUIRES */
-require_once 'core/common.core.inc.php';
 if (!defined('RunALC')) { exit; }
 
-/** PAGE OUTPUT **/
-$output = output::getIndex();
-if(count($output) >= 1) {
-    foreach ($output as $placeholder => $text) {
-        $templsys_core->assign($placeholder, $text);
-    }
-}
+class cache {
 
-exit($templsys_core->page());
+}

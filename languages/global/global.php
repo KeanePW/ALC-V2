@@ -26,19 +26,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+## Allgemein ##
+define('_user_link', '{country} <a class="{class}" href="{href}">{nick}</a>');
+define('_user_link_noreg', '<a class="{class}" href="mailto:{email}">{nick}</a>');
 
-/* INCLUDES/REQUIRES */
-require_once 'core/common.core.inc.php';
-if (!defined('RunALC')) { exit; }
-
-/** PAGE OUTPUT **/
-$output = output::getIndex();
-if(count($output) >= 1) {
-    foreach ($output as $placeholder => $text) {
-        $templsys_core->assign($placeholder, $text);
-    }
-}
-
-exit($templsys_core->page());
+## User Avatar ##
+define('_userava_link', '<img src="uploads/useravatare/{id}.{endung}" width="{width}" height="{height}" alt="" />');
+define('_userava_noavatar', '<img src="uploads/nopic.gif" width="{width}" height="{height}" alt="" />');
