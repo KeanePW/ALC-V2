@@ -44,7 +44,7 @@ define('show_warning', true);
 define('show_xml', false);
 define('show_sessions_debug', true);
 define('show_deprecation_debug', true);
-define('show_debug_console', false);
+define('show_debug_console', true);
 
 #########################################
 //-> Sessions Settings Start
