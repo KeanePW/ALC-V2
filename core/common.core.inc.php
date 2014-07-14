@@ -312,27 +312,9 @@ $frontend = new frontend(); unset($frontend); //__construct
 /* User aktionen ausführen */
 if(backend::loggedin()) {
 
-    $new_msg_count = 0; //DEV -> Summe neuer Nachrichten
-    $new_updates_count = 0; //DEV -> Summe neuer Ereignisse
-
-    /** New messages & updates */
-    output::set('new_msg_count',convert::ToString($new_msg_count));
-    output::set('new_updates_count',convert::ToString($new_updates_count));
-    output::set('new_msg_disable_r',(!$new_msg_count ? '-->' : ''));
-    output::set('new_msg_disable_l',(!$new_msg_count ? '<!--' : ''));
-    output::set('new_updates_disable_r',(!$new_updates_count ? '-->' : ''));
-    output::set('new_updates_disable_l',(!$new_updates_count ? '<!--' : ''));
 }
 
 /* Include Module */
 if(!empty($index) && file_exists(basePath . 'modules/'.$index.'/main.php')) {
     require_once basePath . 'modules/'.$index.'/main.php';
 }
-
-$breadcrumb = '<li><a href="#">Home</a></li>
-            <li><a href="#">Library</a></li>
-            <li class="active">Data</li>';
-output::set('breadcrumb',$breadcrumb);
-
-$side_title = 'NEWS';
-output::set('side_title',$side_title);

@@ -26,10 +26,3 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-## Allgemein ##
-define('_user_link', '{country} <a class="{class}" href="{href}">{nick}</a>');
-define('_user_link_noreg', '<a class="{class}" href="mailto:{email}">{nick}</a>');
-
-## User Avatar ##
-define('_userava_link', '<img src="uploads/useravatare/{id}.{endung}" width="{width}" height="{height}" alt="" />');
-define('_userava_noavatar', '<img src="uploads/nopic.gif" width="{width}" height="{height}" alt="" />');
