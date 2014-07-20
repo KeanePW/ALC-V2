@@ -314,6 +314,12 @@ if(backend::loggedin()) {
 
 }
 
+/* Footer */
+$templsys_footer = new Template();
+$templsys_footer->load("menu/footer/show_footer");
+output::set('content_footer',$templsys_footer->out());
+unset($templsys_footer);
+
 /* Include Module */
 if(!empty($index) && file_exists(basePath . 'modules/'.$index.'/main.php')) {
     require_once basePath . 'modules/'.$index.'/main.php';

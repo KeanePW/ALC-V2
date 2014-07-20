@@ -1,6 +1,7 @@
-body { 
+html, body, .container, .content {
+    height: 100%;
 	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-bottom: 76px;
 }
 
 /* Alert Box */

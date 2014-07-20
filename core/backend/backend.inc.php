@@ -178,6 +178,7 @@ $templsys_core->load("index");
 output::setEmpty('content');
 output::setEmpty('content_right');
 output::setEmpty('content_left');
+output::setEmpty('content_footer');
 
 /**
  * ******************************************
@@ -206,26 +207,26 @@ class backend {
 
     //-> schreibe in die IPCheck Tabelle
     public static function setIpcheck($what = '') {
-    	global $system_db;
-    	return $system_db->insert("INSERT INTO ".dba::get('ipcheck')." SET `ip` = '".core::visitorIp()."', `userid` = '".backend::userid()."', `time` = ".time().", `what` = ?;",array($what));
+        global $system_db;
+        return $system_db->insert("INSERT INTO ".dba::get('ipcheck')." SET `ip` = '".core::visitorIp()."', `userid` = '".backend::userid()."', `time` = ".time().", `what` = ?;",array($what));
     }
 
     //-> Checkt versch. Dinge anhand der Hostmaske eines Users
     public static function ipcheck($what, $time = 0) {
-    	global $system_db;
+        global $system_db;
 
-    	$get = $system_db->select("SELECT `time`,`what` FROM `".dba::get('ipcheck')."` WHERE what = ? AND ip = '".core::visitorIp()."';",array($what));
-    	if(!$system_db->rowCount())
-    		return false;
+        $get = $system_db->select("SELECT `time`,`what` FROM `".dba::get('ipcheck')."` WHERE what = ? AND ip = '".core::visitorIp()."';",array($what));
+        if(!$system_db->rowCount())
+            return false;
 
-    	$time = convert::ToInt($time);
-    	if($get['time']+$time<time())
-    		$system_db->delete("DELETE FROM `".dba::get('ipcheck')."` WHERE what = ? AND ip = '".core::visitorIp()."' AND time+'".$time."'<'".time()."'",array($what));
+        $time = convert::ToInt($time);
+        if($get['time']+$time<time())
+            $system_db->delete("DELETE FROM `".dba::get('ipcheck')."` WHERE what = ? AND ip = '".core::visitorIp()."' AND time+'".$time."'<'".time()."'",array($what));
 
-    	if($get['time']+$time>time())
-    		return true;
+        if($get['time']+$time>time())
+            return true;
 
-    	return false;
+        return false;
     }
 }
 
