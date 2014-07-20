@@ -1,6 +1,6 @@
 <li class="dropdown">
-	<a class="{class}" href=""><span class="menu-item">{name}</span></a>
-	<ul class="list-unstyled menu-item">
+	<a class="dropdown-toggle" href="#" data-toggle="dropdown">{name} <span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
 		{menu_entities}
 	</ul>
 </li>
