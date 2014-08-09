@@ -307,7 +307,7 @@ class core {
 
 require_once basePath . 'core/backend/backend.inc.php'; //Add Backend
 require_once basePath . 'core/frontend/frontend.inc.php'; //Add Frontend
-$frontend = new frontend(); unset($frontend); //__construct
+$frontend = new frontend(); //__construct frontend
 
 /* User aktionen ausführen */
 if(backend::loggedin()) {

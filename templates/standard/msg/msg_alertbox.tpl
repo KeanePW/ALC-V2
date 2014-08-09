@@ -1,1 +1,1 @@
-<div class="alert-box {class}"><span>{lang_{class}}: </span>{text}</div>
+<div class="alert {class}"><strong>{lang_{status}}!</strong> {text}</div>

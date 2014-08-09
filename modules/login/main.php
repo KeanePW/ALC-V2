@@ -46,7 +46,6 @@ switch ($do) {
     break;
     default:
         if(!backend::loggedin()) {
-
             /* Filter POST & Prüfe auf Login */
             $validate = array('login'    => 'required',
                               'username' => 'required|alpha_numeric|min_len,1',
@@ -54,10 +53,6 @@ switch ($do) {
 
             $gump_check_login = $gump->validate($_POST, $validate);
             if($gump_check_login === TRUE) {
-
-                echo '<pre>';
-                print_r($_POST);
-
                 $filter = array('username' => 'trim|sanitize_string',
                                 'password'  => 'trim|sanitize_string|sha1');
 
@@ -90,16 +85,17 @@ switch ($do) {
 
                     /* Aktualisiere User Statistiken */
                     $system_db->update("UPDATE `".dba::get('userstats')."` SET `logins` = logins+1, `last_online` = ".time()." WHERE `id` = ".$get['id'].";");
-                    if($_POST['referer'] == 'login_box')
-                        header("Location: ".$_SERVER['HTTP_REFERER']);
+                    header("Location: ".$_SERVER['HTTP_REFERER']);
                 }
                 else {
+                    output::set('alert', MSGBox::get_msg_error(_login_fail));
                     Debugger::insert_error('module::login', 'Datensatz f&uuml;r User: "'.$_POST['username'].'" wurde nicht gefunden');
                 }
             }
 
             if(!backend::loggedin()) {
                 $templsys_login->load("login/login");
+                $templsys_login->assign('alert', output::get('alert',true));
                 output::set('index', $templsys_login->out());
             }
         }

@@ -8,8 +8,9 @@
     <meta name='copyright' content='Copyright (c) 2014 Altis Life Control V2 by Revoplay.de Development - Revoplay.de' />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="{dir}/_css/global.style.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="{dir}/_css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{dir}/_css/bootstrap-theme.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{dir}/_css/global.style.css" type="text/css" rel="stylesheet" />
 
     <!-- Javascript Libraries -->
 

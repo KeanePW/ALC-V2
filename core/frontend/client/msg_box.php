@@ -37,42 +37,44 @@ class MSGBox extends frontend {
         return self::$index;
     }
 
-    public static function msg_error($text='') { //alias msg_box()
-        self::$index .= self::msg_box($text,'error');
+    public static function msg_error($text='') { //alias get_msg_error()
+        self::$index .= self::get_msg_error($text);
     }
 
-    public static function msg_notice($text='') { //alias msg_box()
-        self::$index .= self::msg_box($text,'notice');
+    public static function msg_info($text='') { //alias get_msg_info()
+        self::$index .= self::get_msg_info($text);
     }
 
-    public static function msg_success($text='') { //alias msg_box()
-        self::$index .= self::msg_box($text,'success');
+    public static function msg_success($text='') { //alias get_msg_success()
+        self::$index .= self::get_msg_success($text);
     }
 
-    public static function msg_warning($text='') { //alias msg_box()
-        self::$index .= self::msg_box($text,'warning');
+    public static function msg_warning($text='') { //alias get_msg_warning()
+        self::$index .= self::get_msg_warning($text);
     }
 
+    //GET
     public static function get_msg_error($text='') { //alias msg_box()
-        return self::msg_box($text,'error');
+        return self::msg_box($text,'alert-danger','error');
     }
 
-    public static function get_msg_notice($text='') { //alias msg_box()
-        return self::msg_box($text,'notice');
+    public static function get_msg_info($text='') { //alias msg_box()
+        return self::msg_box($text,'alert-info','notice');
     }
 
     public static function get_msg_success($text='') { //alias msg_box()
-        return self::msg_box($text,'success');
+        return self::msg_box($text,'alert-success','success');
     }
 
     public static function get_msg_warning($text='') { //alias msg_box()
-        return self::msg_box($text,'warning');
+        return self::msg_box($text,'alert-warning','warning');
     }
 
-    private static function msg_box($text='',$class='') {
-        self::$templsys->assign('class', $class);
-        self::$templsys->assign('text', convert::ToHTML($text));
+    private static function msg_box($text='',$class='',$dismiss='') {
         self::$templsys->load("msg/msg_alertbox");
+        self::$templsys->assign('class', $class);
+        self::$templsys->assign('status', $dismiss);
+        self::$templsys->assign('text', convert::ToHTML($text));
         return self::$templsys->out();
     }
 }

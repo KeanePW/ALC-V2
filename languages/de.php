@@ -28,6 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define('_logout', 'Log Out');
 define('_id_dont_exist', 'Die von dir eingegebene ID existiert nicht!');
+define('_login_fail', 'Login ist fehlerhaft');
 define('_error', 'Fehler');
 define('_notice', 'Hinweis');
 define('_success', 'Erfolg');

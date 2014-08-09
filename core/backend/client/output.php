@@ -48,4 +48,10 @@ class output {
     public static function remove($placeholder = '') {
         unset(self::$output_index[$placeholder]);
     }
+
+    public static function get($placeholder='',$remove=false) {
+        $data = self::$output_index[$placeholder];
+        if($remove) unset(self::$output_index[$placeholder]);
+        return $data;
+    }
 }

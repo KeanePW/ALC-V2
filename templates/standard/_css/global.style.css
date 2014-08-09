@@ -14,33 +14,3 @@ html, body, .container, .content {
 .form-login input[type="password"]{margin-bottom:10px;border-top-left-radius:0;border-top-right-radius:0;}
 .account-wall{margin-top:20px;background-color:#f7f7f7;-moz-box-shadow:0 2px 2px rgba(0,0,0,0.3);-webkit-box-shadow:0 2px 2px rgba(0,0,0,0.3);box-shadow:0 2px 2px rgba(0,0,0,0.3);padding:40px 0 20px;}
 .need-help{margin-top:10px;}
-
-/* Alert Box */
-.alert-box {
-    color:#555;
-    border-radius:6px;
-    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
-    padding:10px 36px;
-    margin:10px;
-    text-align:left;
-}
-.alert-box span {
-    font-weight:bold;
-    text-transform:uppercase;
-}
-.error {
-    background:#ffecec url('../images/error.png') no-repeat 10px 50%;
-    border:1px solid #f5aca6;
-}
-.success {
-    background:#e9ffd9 url('../images/success.png') no-repeat 10px 50%;
-    border:1px solid #a6ca8a;
-}
-.warning {
-    background:#fff8c4 url('../images/warning.png') no-repeat 10px 50%;
-    border:1px solid #f2c779;
-}
-.notice {
-    background:#e3f7fc url('../images/notice.png') no-repeat 10px 50%;
-    border:1px solid #8ed9f6;
-}
