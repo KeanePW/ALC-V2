@@ -1,20 +1,16 @@
-
-            <div class="clearfix"></div>
-			<!-- Login -->
-            <form class="box tile animated active" id="box-login">
-                <h2 class="m-t-0 m-b-15">Login</h2>
-                <input type="text" class="login-control m-b-10" placeholder="Username or Email Address">
-                <input type="password" class="login-control" placeholder="Password">
-                <div class="checkbox m-b-20">
-                    <label>
-                        <input type="checkbox">
-                        Remember Me
-                    </label>
-                </div>
-                <button class="btn btn-sm m-r-5">Sign In</button>
-                
-                <small>
-                    <a class="box-switcher" data-switch="box-register" href="">Don't have an Account?</a> or
-                    <a class="box-switcher" data-switch="box-reset" href="">Forgot Password?</a>
-                </small>
-            </form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <img src="{dir}/img/logo.png" style="margin: auto;text-align: center;display: block;"/>
+                <form action="?index=login" class="form-login" method="post" name="box-login" id="box-login" autocomplete="off">
+                <input type="text" class="form-control" placeholder="{lang_username}" name="username" required autofocus>
+                <input type="password" class="form-control" placeholder="{lang_password}" name="password" required>
+                <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Login</button>
+                <label class="checkbox pull-left"><input type="checkbox" name="autologin" value="remember-me">{lang_autologin}</label>
+                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

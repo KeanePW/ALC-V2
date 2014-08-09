@@ -29,7 +29,7 @@
 
     <title>Altis Life Control</title>
 </head>
-    <body style='background: url({dir}/img/altis_background_2.jpg); background-size: cover;'>
+    <body>
         <div id='wrap'>
             {menu_navigation}
             {index}

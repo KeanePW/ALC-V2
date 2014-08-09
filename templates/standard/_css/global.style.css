@@ -1,8 +1,19 @@
 html, body, .container, .content {
     height: 100%;
-	padding-top: 70px;
-	padding-bottom: 76px;
+    padding-top: 70px;
+    padding-bottom: 76px;
 }
+
+/* Login From */
+.form-login{max-width:330px;margin:0 auto;padding:15px;}
+.form-login .form-login-heading,.form-login .checkbox{margin-bottom:10px;}
+.form-login .checkbox{font-weight:normal;}
+.form-login .form-control{position:relative;font-size:16px;height:auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:10px;}
+.form-login .form-control:focus{z-index:2;}
+.form-login input[type="text"]{margin-bottom:-1px;border-bottom-left-radius:0;border-bottom-right-radius:0;}
+.form-login input[type="password"]{margin-bottom:10px;border-top-left-radius:0;border-top-right-radius:0;}
+.account-wall{margin-top:20px;background-color:#f7f7f7;-moz-box-shadow:0 2px 2px rgba(0,0,0,0.3);-webkit-box-shadow:0 2px 2px rgba(0,0,0,0.3);box-shadow:0 2px 2px rgba(0,0,0,0.3);padding:40px 0 20px;}
+.need-help{margin-top:10px;}
 
 /* Alert Box */
 .alert-box {

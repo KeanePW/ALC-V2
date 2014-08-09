@@ -144,7 +144,7 @@ $validate = array('index' => 'required|alpha_numeric|max_len,20',
                   'page'  => 'numeric|max_len,3',
                   'do'    => 'alpha_numeric|max_len,30');
 
-$do = 'default'; $page = 1; $index = 'news';
+$do = 'default'; $page = 1; $index = 'home';
 $gump_check_core = $gump->validate($_GET, $validate);
 if($gump_check_core === TRUE) {
     $do = isset($_GET['do']) ? $_GET['do'] : $do;

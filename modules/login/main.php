@@ -46,6 +46,7 @@ switch ($do) {
     break;
     default:
         if(!backend::loggedin()) {
+
             /* Filter POST & Prüfe auf Login */
             $validate = array('login'    => 'required',
                               'username' => 'required|alpha_numeric|min_len,1',
@@ -53,6 +54,10 @@ switch ($do) {
 
             $gump_check_login = $gump->validate($_POST, $validate);
             if($gump_check_login === TRUE) {
+
+                echo '<pre>';
+                print_r($_POST);
+
                 $filter = array('username' => 'trim|sanitize_string',
                                 'password'  => 'trim|sanitize_string|sha1');
 
@@ -95,7 +100,7 @@ switch ($do) {
 
             if(!backend::loggedin()) {
                 $templsys_login->load("login/login");
-                output::set('content', $templsys_login->out());
+                output::set('index', $templsys_login->out());
             }
         }
     break;

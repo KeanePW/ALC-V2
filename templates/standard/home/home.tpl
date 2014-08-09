@@ -1,5 +1,3 @@
-{content}
-  
   <div class="container" style="padding-top: 60px;">
     <div class="row">
         <ol class="breadcrumb">
@@ -17,7 +15,7 @@
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="submit" >Get Your Data!</button>
                 </span>
-                
+
             </div>
         </form>
         <p><a class="btn btn-default" href="steam_id.php" role="button">How to find your Steam User ID</a>
