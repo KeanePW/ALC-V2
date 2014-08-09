@@ -50,6 +50,9 @@ class output {
     }
 
     public static function get($placeholder='',$remove=false) {
+        if(!array_key_exists($placeholder, self::$output_index))
+            return '';
+
         $data = self::$output_index[$placeholder];
         if($remove) unset(self::$output_index[$placeholder]);
         return $data;

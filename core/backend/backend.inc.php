@@ -179,7 +179,6 @@ output::setEmpty('content');
 output::setEmpty('content_right');
 output::setEmpty('content_left');
 output::setEmpty('content_footer');
-output::setEmpty('alert');
 
 /**
  * ******************************************
