@@ -26,3 +26,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+define('_nav_home', 'Home');
+define('_nav_admin', 'Administration');
+define('_nav_stats', 'Statistik');

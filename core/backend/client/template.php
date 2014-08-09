@@ -91,11 +91,15 @@ class Template {
             unset($this->replacer[$search]);
         }
 
-        $this->index = str_replace($this->leftDelimiter.'lang'.$this->rightDelimiter, language::get_language(), $this->index); //Language
+        $this->index = $this->assign_lang($this->index); //Language
         $this->index = preg_replace_callback("(\{lang(.*?)\\})is", function($lang) { if(defined($lang[1])) return constant($lang[1]); return 'lang'.$lang[1]; }, $this->index);
         $this->assign_tags();
         $this->replacer = array();
         return $this->index;
+    }
+
+    public function assign_lang($input) {
+        return preg_replace_callback("(\{lang(.*?)\\})is", function($lang) { if(defined($lang[1])) return constant($lang[1]); return 'lang'.$lang[1]; }, $input);
     }
 
     public function page() {

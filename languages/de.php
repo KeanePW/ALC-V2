@@ -40,3 +40,6 @@ define('_group_admin', 'Administrator');
 define('_group_member', 'Mitglied');
 define('_group_moderator', 'Moderator');
 define('_group_user', 'User');
+
+## Breadcrumb ##
+define('_home', 'Home');

@@ -28,11 +28,45 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 if (!defined('RunALC')) { exit; }
 
-define('modulePath',basePath . 'modules/home/');
+define('modulePath',basePath . 'modules/player/');
 if(file_exists(modulePath . 'languages/'.language::get_language().'.php'))
     require_once(modulePath . 'languages/'.language::get_language().'.php');
 
+/* Filter POST & Prüfe auf Steam-ID64/CID */
+$validate = array('steam_id' => 'required|numeric|min_len,1');
+$gump_check_steamid = $gump->validate($_POST, $validate);
+
+/* Filter GET & Prüfe auf UserID/UID */
+$validate = array('uid' => 'required|numeric|min_len,1');
+$gump_check_uid = $gump->validate($_GET, $validate);
+
+if($gump_check_steamid === TRUE || $gump_check_uid === TRUE) {
+    if($gump_check_steamid === TRUE) {
+        $filter = array('steam_id' => 'sanitize_numbers');
+        $_POST = $gump->filter($_POST, $filter);
+        $player = $system_db->select('SELECT `uid`,`name` FROM `players` WHERE `playerid` = ?',array($_POST['steam_id']));
+    }
+
+    if($gump_check_uid === TRUE) {
+        $filter = array('uid' => 'sanitize_numbers');
+        $_GET = $gump->filter($_GET, $filter);
+        $player = $system_db->select('SELECT `uid`,`name` FROM `players` WHERE `uid` = ?',array($_GET['uid']));
+    }
+
+    /* Start Player */
+    breadcrumb::add('Player List','?index=playerlist');
+    breadcrumb::add(convert::ToHTML($player['name']),'?index=player&uid='.$player['uid']);
+    $player = alc_player::get_player($player['uid']); //Get User Infos
+
+    echo '<pre>';
+    print_r($player);
+    echo '</pre>';
+
+}
+
+
+
 $templsys_login = new Template();
-$templsys_login->load("home/home");
+$templsys_login->load("player/player");
 $templsys_login->assign('breadcrumb', breadcrumb::get());
 output::set('index', $templsys_login->out());

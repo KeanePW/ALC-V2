@@ -34,6 +34,9 @@ if(file_exists(modulePath . 'languages/'.language::get_language().'.php'))
 
 $templsys_login = new Template();
 
+if(backend::loggedin())
+    echo 'login';
+
 switch ($do) {
     case 'logout':
         if(backend::loggedin()) {
@@ -45,6 +48,7 @@ switch ($do) {
         }
     break;
     default:
+        output::setEmpty('index');
         if(!backend::loggedin()) {
             /* Filter POST & Prüfe auf Login */
             $validate = array('login'    => 'required',
@@ -60,7 +64,7 @@ switch ($do) {
                 unset($_POST['login']); //Unset submit button
 
                 /* Login mit Datenbank abgleichen */
-                $get = $system_db->select("SELECT `id`,`time` FROM `".dba::get('users')."` WHERE `username` = ? AND `password` = ?",array($_POST['username'],$_POST['password']));
+                $get = $system_db->select("SELECT `id`,`time`,`language` FROM `".dba::get('users')."` WHERE `username` = ? AND `password` = ?",array($_POST['username'],$_POST['password']));
                 if($system_db->rowCount()) {
                     Debugger::insert_successful('module::login', 'Datensatz f&uuml;r User: "'.$_POST['username'].'" gefunden');
 
@@ -81,6 +85,8 @@ switch ($do) {
                     $_SESSION['userid']         = $get['id'];
                     $_SESSION['lastvisit']      = $get['time'];
                     $_SESSION['ip']             = $userip;
+
+                    language::set_language($get['language']); //Set language
                     unset($userip);
 
                     /* Aktualisiere User Statistiken */

@@ -1,11 +1,11 @@
   <div class="container" style="padding-top: 60px;">
-	{breadcrumb}
+    {breadcrumb}
     <div class="jumbotron">
         <h1>Hello, Civilist of Altis!</h1>
         <p>You can watch here your ingame Inventory, your Houses and your Cars, Helicopters and Boats. <br>
             Plan your next Travel on Altis, even if your are offline. Here you can watch your ingame inventory, your houses and your vehicles. <br>
             Plan your next tour on Altis, even if you are offline.</p>
-        <form method="post" action="?index=player" role="form" >
+        <form method="post" action="player.php" role="form" >
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Enter your Steam ID here" name="steam_id" >
                 <span class="input-group-btn">

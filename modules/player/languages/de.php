@@ -25,37 +25,3 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-
-/* block attempts to directly run this script */
-if (getcwd() == dirname(__FILE__)) {
-    die('block directly run');
-}
-
-if (!defined('RunALC')) {
-    exit;
-}
-
-/* Require Client Core */
-$require_client = core::getFiles(basePath . 'core/frontend/client',false,true,array('php'));
-if($require_client && count($require_client) >= 1) {
-    foreach ($require_client as $require_client_file) {
-        if(file_exists(basePath . 'core/frontend/client/' . $require_client_file))
-            require_once basePath . 'core/frontend/client/' . $require_client_file;
-    }
-}
-unset($require_client,$require_client_file);
-
-/**
- * ******************************************
- * ************* FUNCTIONS ******************
- * ******************************************
- */
-
-class frontend {
-    public static $templsys = NULL;
-
-    function __construct() {
-        self::$templsys = new Template();
-        breadcrumb::add(_home,'?index=home');
-    }
-}

@@ -71,7 +71,7 @@ class MSGBox extends frontend {
     }
 
     private static function msg_box($text='',$class='',$dismiss='') {
-        self::$templsys->load("msg/msg_alertbox");
+        self::$templsys->load("page/msg_alertbox");
         self::$templsys->assign('class', $class);
         self::$templsys->assign('status', $dismiss);
         self::$templsys->assign('text', convert::ToHTML($text));
